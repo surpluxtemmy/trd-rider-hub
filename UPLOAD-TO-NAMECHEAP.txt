@@ -1,0 +1,45 @@
+TRD RIDER HUB — upload to Namecheap (cPanel)
+============================================
+
+Upload the CONTENTS of this zip into public_html.
+Do not upload a nested folder named namecheap-php.
+After extract you should see index.php and install.php in public_html
+(or in public_html/trd/ if you want a subfolder).
+
+1. cPanel → MySQL Database Wizard
+   - Create a database
+   - Create a user with a strong password
+   - Grant ALL PRIVILEGES
+   - Write down: host (usually localhost), database name, username, password
+   Namecheap prefixes these (example: youruser_trdhub). That is normal.
+
+2. File Manager (or FTP)
+   - Open public_html
+   - Upload this zip and Extract, OR upload all files
+   - You must see: index.php, install.php, assets/, includes/, uploads/, data/, .htaccess
+
+3. Permissions
+   - uploads/  → 0755
+   - data/     → 0755
+
+4. Browser
+   - Open https://YOUR-DOMAIN.com/install.php
+   - Enter MySQL details
+   - Create the first administrator
+   - Enter company WhatsApp in international digits, e.g. 9689XXXXXXX
+   - Submit
+
+5. After “Installed”
+   - Sign in at /login with the admin account
+   - Optional: delete install.php from the server
+   - Keep data/install.lock
+   - Settings → add WhatsApp Cloud API and SMTP if you have them
+
+Subfolder (example: public_html/trd/)
+- Edit .htaccess and set: RewriteBase /trd/
+
+Requirements
+- PHP 8.0+ with PDO MySQL
+- Apache mod_rewrite (Namecheap default)
+
+Need more detail? Open README.md
